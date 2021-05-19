@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public GameObject scoreEntryUI;
 
     // Start is called before the first frame update
     void Awake()
@@ -16,6 +17,8 @@ public class MenuManager : MonoBehaviour
         // Find and assign object then hide the menu
         pauseMenu = GameObject.Find("PauseMenu");
         pauseMenu.SetActive(false);
+        scoreEntryUI = GameObject.Find("ScoreEntryUI");
+        scoreEntryUI.SetActive(false);
     }
 
     private void Update()
@@ -32,4 +35,11 @@ public class MenuManager : MonoBehaviour
         pauseMenu.SetActive(true);
         Time.timeScale = 0; // Stop time while pause menu is active
     }
+
+    public void DisplayScoreEntryUI()
+    {
+        scoreEntryUI.SetActive(true);
+        Time.timeScale = 0; // Stop time while pause menu is active
+    }
+
 }

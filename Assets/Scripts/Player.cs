@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private int score;
+    [SerializeField] private MenuManager menuManager;
 
     public int Score
     {
@@ -17,8 +18,9 @@ public class Player : MonoBehaviour
     void Start()
     {
         speed = 10;
-
+        menuManager = FindObjectOfType<MenuManager>();
     }
+
 
     // Update is called once per frame
     void Update()
@@ -34,6 +36,11 @@ public class Player : MonoBehaviour
     // ontrigger to detect a reward using "Reward" Tag
     private void OnTriggerEnter(Collider other)
     {
+        // ontrigger to detect an NPC using "NPC" Tag
+        if (other.CompareTag("NPC"))
+        {
+            menuManager.DisplayScoreEntryUI();
+        }
 
     }
 }
