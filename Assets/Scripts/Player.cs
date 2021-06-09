@@ -21,7 +21,6 @@ public class Player : MonoBehaviour
         menuManager = FindObjectOfType<MenuManager>();
     }
 
-
     // Update is called once per frame
     void Update()
     {
@@ -36,11 +35,20 @@ public class Player : MonoBehaviour
     // ontrigger to detect a reward using "Reward" Tag
     private void OnTriggerEnter(Collider other)
     {
-        // ontrigger to detect an NPC using "NPC" Tag
+        // ontrigger to detect a reward using "Reward" Tag
+        if (other.CompareTag("Reward"))
+        {
+            score++;
+            Debug.Log("Score: " + score);
+            Debug.Log("Collide: " + other);
+            Destroy(other.gameObject);
+        }
+
+        // ontrigger to detect a reward using "Reward" Tag
         if (other.CompareTag("NPC"))
         {
             menuManager.DisplayScoreEntryUI();
         }
-
     }
 }
+

@@ -10,6 +10,7 @@ public class MenuManager : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject scoreEntryUI;
+    public GameObject gameOverMenu;
 
     // Start is called before the first frame update
     void Awake()
@@ -19,6 +20,8 @@ public class MenuManager : MonoBehaviour
         pauseMenu.SetActive(false);
         scoreEntryUI = GameObject.Find("ScoreEntryUI");
         scoreEntryUI.SetActive(false);
+        gameOverMenu = GameObject.Find("GameOverMenu");
+        gameOverMenu.SetActive(false);
     }
 
     private void Update()
