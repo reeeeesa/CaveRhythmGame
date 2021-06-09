@@ -2211,7 +2211,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 884421848383721155, guid: f9da124d56e9e714a813573effb20d5e, type: 3}
       propertyPath: m_Name
-      value: NPC
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 3204820454751397524, guid: f9da124d56e9e714a813573effb20d5e, type: 3}
       propertyPath: m_RootOrder
