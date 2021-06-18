@@ -21,11 +21,11 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (player.levelComplete)
+        /*if (player.levelComplete)
         {
             player.levelComplete = false;
             LoadNextLevel();
-        }
+        }*/
     }
 
     // Return current level

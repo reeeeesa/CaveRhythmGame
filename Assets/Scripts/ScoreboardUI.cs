@@ -36,7 +36,7 @@ public class ScoreboardUI : MonoBehaviour
 
     private void ClearScoreboard()
     {
-        sbDataManager.DeleteFile("playerscore.dat");
+        sbDataManager.DeleteFile("/playerscore.dat");
         SetupBoard();
     }
 
@@ -47,7 +47,7 @@ public class ScoreboardUI : MonoBehaviour
         nameText.text = "";
         scoreText.text = "";
         List<ScoreboardEntry> tempDataList = new List<ScoreboardEntry>();
-        tempDataList = sbDataManager.LoadData("playerscore.dat");
+        tempDataList = sbDataManager.LoadData("/playerscore.dat");
 
         for (int i = 0; i < tempDataList.Count; i++)
         {
