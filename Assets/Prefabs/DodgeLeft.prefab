@@ -417,8 +417,8 @@ GameObject:
   - component: {fileID: 6306151369270909640}
   - component: {fileID: 7384938190209568364}
   m_Layer: 0
-  m_Name: DodgeLeft 1
-  m_TagString: Untagged
+  m_Name: DodgeLeft
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
