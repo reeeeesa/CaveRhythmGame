@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private int score;
     [SerializeField] private MenuManager menuManager;
+    public bool levelComplete = false;
 
     public int Score
     {
