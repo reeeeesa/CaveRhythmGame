@@ -5,7 +5,7 @@ using UnityEngine;
 // Purpose: 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    //[SerializeField] private float speed;
     [SerializeField] private int score;
     [SerializeField] private MenuManager menuManager;
     KeyCode leftArrow = KeyCode.LeftArrow;
@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = 10;
+        //speed = 10;
         menuManager = FindObjectOfType<MenuManager>();
     }
 
@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
         // ontrigger to detect a reward using "Reward" Tag
         if (other.CompareTag("NPC"))
         {
-            menuManager.DisplayScoreEntryUI();
+            menuManager.DisplayGameOverMenu();
         }
     }
 }

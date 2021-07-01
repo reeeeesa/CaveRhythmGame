@@ -7,23 +7,20 @@ using UnityEngine.SceneManagement;
 
 public class GameOverMenu : MonoBehaviour
 {
-    public Button resumeButton;
     public Button restartButton;
-    public Button quitButton;
+    public Button mainMenuButton;
 
     // Start is called before the first frame update
     void Start()
     {
         Component[] buttonComponents;
         buttonComponents = GetComponentsInChildren<Button>(); // store all the buttons in an array
-        resumeButton = buttonComponents[0].GetComponent<Button>(); // Get First Button
-        restartButton = buttonComponents[1].GetComponent<Button>(); // Get Second Button
-        quitButton = buttonComponents[2].GetComponent<Button>(); // Get Third Button
+        restartButton = buttonComponents[0].GetComponent<Button>(); // Get Second Button
+        mainMenuButton = buttonComponents[1].GetComponent<Button>(); // Get Third Button
 
         // Add a listener for a click event for each button
-        resumeButton.onClick.AddListener(delegate { Debug.Log("Resume"); ResumeGame(); });
         restartButton.onClick.AddListener(delegate { Debug.Log("Restart"); RestartGame(); });
-        quitButton.onClick.AddListener(delegate { Debug.Log("Quit"); Application.Quit(); });
+        mainMenuButton.onClick.AddListener(delegate { Debug.Log("Quit"); Application.Quit(); });
     }
 
     private void ResumeGame()

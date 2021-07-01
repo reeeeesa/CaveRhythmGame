@@ -45,4 +45,9 @@ public class MenuManager : MonoBehaviour
         Time.timeScale = 0; // Stop time while pause menu is active
     }
 
+    public void DisplayGameOverMenu()
+    {
+        gameOverMenu.SetActive(true);
+        Time.timeScale = 0; // Stop time while pause menu is active
+    }
 }
