@@ -8,6 +8,10 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private int score;
     [SerializeField] private MenuManager menuManager;
+    KeyCode leftArrow = KeyCode.LeftArrow;
+    KeyCode rightArrow = KeyCode.RightArrow;
+    KeyCode upArrow = KeyCode.UpArrow;
+    KeyCode downArrow = KeyCode.DownArrow;
     public bool levelComplete = false;
 
     public int Score
@@ -30,8 +34,22 @@ public class Player : MonoBehaviour
 
     public void Movement()
     {
+        if (Input.GetKeyDown(leftArrow)){
+            transform.position = transform.position + new Vector3(-1, 0, 0);
+        }
+        if (Input.GetKeyDown(rightArrow))
+        {
+            transform.position = transform.position + new Vector3(1, 0, 0);
+        }
+        if (Input.GetKeyDown(upArrow))
+        {
+            transform.position = transform.position + new Vector3(0, 1, 0);
+        }
+        if (Input.GetKeyDown(downArrow))
+        {
+            transform.position = transform.position + new Vector3(0, -1, 0);
+        }
 
-        transform.position = transform.position + new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0, 0);
     }
 
     // ontrigger to detect a reward using "Reward" Tag
