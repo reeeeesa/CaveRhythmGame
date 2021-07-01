@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
 
     public void Movement()
     {
+
         transform.position = transform.position + new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0, 0);
     }
 

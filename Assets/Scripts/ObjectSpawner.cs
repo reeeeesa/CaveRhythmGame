@@ -15,7 +15,7 @@ public class ObjectSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timer = 3f;
+        timer = 1.5f;
         objectSpawnList.Add(jumpUpPrefab); //0
         objectSpawnList.Add(duckDownPrefab); //1
         objectSpawnList.Add(dodgeRightPrefab); //2
@@ -40,7 +40,7 @@ public class ObjectSpawner : MonoBehaviour
 
         if (timer < 0)
         {
-            timer = 3;
+            timer = 1.5f;
             int randomNum = Random.Range(0, objectSpawnList.Count);
             Instantiate(objectSpawnList[randomNum], this.transform.position, this.transform.rotation);
         }
