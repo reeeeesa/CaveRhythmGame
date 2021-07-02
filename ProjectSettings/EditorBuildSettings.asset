@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/1ScoreboardScene.unity
     guid: 0ae64199490dfc344aae8b0d991bf9cd
+  - enabled: 1
+    path: Assets/Scenes/2LevelSelectScene.unity
+    guid: 70954d3ab5ff8054c92306b2d969cd15
   m_configObjects: {}

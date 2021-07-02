@@ -23,12 +23,6 @@ public class GameOverMenu : MonoBehaviour
         mainMenuButton.onClick.AddListener(delegate { Debug.Log("Quit"); Application.Quit(); });
     }
 
-    private void ResumeGame()
-    {
-        Time.timeScale = 1f; // Start time when pause menu active is false
-        gameObject.SetActive(false);
-    }
-
     private void RestartGame()
     {
         SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
@@ -37,12 +31,6 @@ public class GameOverMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // close pause menu using 'esc' key press
-        if (gameObject.activeSelf == true && Input.GetKeyDown(KeyCode.Escape))
-        {
-            Time.timeScale = 1; // Start time when pause menu active is false
-            gameObject.SetActive(false);
-
-        }
+        
     }
 }

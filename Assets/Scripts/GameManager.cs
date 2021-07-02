@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private Player player;
+    private LevelSelectMenu song;
     private int currentLevel; // track current level
-    private int lastLevel = 2; // set last level
+    private int lastLevel = 3; // set last level
 
     void Awake()
     {
         player = FindObjectOfType<Player>();
+        song = FindObjectOfType<LevelSelectMenu>();
     }
 
     private void Start()
@@ -51,8 +53,7 @@ public class GameManager : MonoBehaviour
             //unload current Level
             SceneManager.UnloadSceneAsync(currentLevel);
             // Merge next scene with Game Scene
-            currentLevel++; // add to level count
-            SceneManager.LoadScene(currentLevel, LoadSceneMode.Additive);
+            SceneManager.LoadScene("2LevelSelectScene", LoadSceneMode.Additive);
         }
         else
         {

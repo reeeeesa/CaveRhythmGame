@@ -32,7 +32,7 @@ public class StartMenu : MonoBehaviour
     private void StartGame()
     {
         Debug.Log("Load Game Scene");
-        SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("2LevelSelectScene", LoadSceneMode.Single);
     }
 
 
