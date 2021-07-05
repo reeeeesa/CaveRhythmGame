@@ -22,6 +22,21 @@ public class LevelSelectMenu : MonoBehaviour
         song3.SetActive(false);
     }
 
+    public void DisplaySong1()
+    {
+        song1.SetActive(true);
+    }
+
+    public void DisplaySong2()
+    {
+        song2.SetActive(true);
+    }
+
+    public void DisplaySong3()
+    {
+        song3.SetActive(true);
+    }
+
     // Update is called once per frame
     void Update()
     {

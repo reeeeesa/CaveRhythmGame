@@ -32,7 +32,7 @@ public class ObstacleMovement : MonoBehaviour
 
 
 
-        if (transform.position.z < -30f)
+        if (transform.position.z < -20f)
         {
             Destroy(this.gameObject);
             Debug.Log("NPC Destroyed");

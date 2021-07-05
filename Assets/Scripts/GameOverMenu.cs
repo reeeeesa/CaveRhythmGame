@@ -20,12 +20,16 @@ public class GameOverMenu : MonoBehaviour
 
         // Add a listener for a click event for each button
         restartButton.onClick.AddListener(delegate { Debug.Log("Restart"); RestartGame(); });
-        mainMenuButton.onClick.AddListener(delegate { Debug.Log("Quit"); Application.Quit(); });
+        mainMenuButton.onClick.AddListener(delegate { Debug.Log("Load main menu"); LoadMainMenu(); });
     }
 
     private void RestartGame()
     {
         SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+    }
+    private void LoadMainMenu()
+    {
+        SceneManager.LoadScene("0StartScene", LoadSceneMode.Single);
     }
 
     // Update is called once per frame

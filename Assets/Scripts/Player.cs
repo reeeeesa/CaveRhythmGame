@@ -5,14 +5,13 @@ using UnityEngine;
 // Purpose: 
 public class Player : MonoBehaviour
 {
-    //[SerializeField] private float speed;
     [SerializeField] private int score;
+    [SerializeField] private int health;
     [SerializeField] private MenuManager menuManager;
     KeyCode leftArrow = KeyCode.LeftArrow;
     KeyCode rightArrow = KeyCode.RightArrow;
     KeyCode upArrow = KeyCode.UpArrow;
     KeyCode downArrow = KeyCode.DownArrow;
-    public bool levelComplete = false;
 
     public int Score
     {
@@ -22,8 +21,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //speed = 10;
         menuManager = FindObjectOfType<MenuManager>();
+        health = 10;
     }
 
     // Update is called once per frame
@@ -52,20 +51,25 @@ public class Player : MonoBehaviour
 
     }
 
-    // ontrigger to detect a reward using "Reward" Tag
+    // ontrigger to detect a collision
     private void OnTriggerEnter(Collider other)
     {
         // ontrigger to detect a reward using "Reward" Tag
-        if (other.CompareTag("Reward"))
+        /*if (other.CompareTag("Reward"))
         {
             score++;
             Debug.Log("Score: " + score);
             Debug.Log("Collide: " + other);
             Destroy(other.gameObject);
+        }*/
+
+        // ontrigger to detect an obstacle using "NPC" Tag
+        if (other.CompareTag("NPC"))
+        {
+            health--;
         }
 
-        // ontrigger to detect a reward using "Reward" Tag
-        if (other.CompareTag("NPC"))
+        if (health <= 0)
         {
             menuManager.DisplayGameOverMenu();
         }
