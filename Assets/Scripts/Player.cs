@@ -61,14 +61,6 @@ public class Player : MonoBehaviour
     // ontrigger to detect a collision
     private void OnTriggerEnter(Collider other)
     {
-        // ontrigger to detect a reward using "Reward" Tag
-        /*if (other.CompareTag("Reward"))
-        {
-            score++;
-            Debug.Log("Score: " + score);
-            Debug.Log("Collide: " + other);
-            Destroy(other.gameObject);
-        }*/
 
         // ontrigger to detect an obstacle using "NPC" Tag
         if (other.CompareTag("NPC"))

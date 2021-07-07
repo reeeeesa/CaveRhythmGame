@@ -60,21 +60,36 @@ public class LevelSelectMenu : MonoBehaviour
     private void StartGame()
     {
         Debug.Log("Load Game Scene");
-        SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+        if (songPosition == 0)
+        {
+            SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+        }
+        else if (songPosition == 1)
+        {
+            SceneManager.LoadScene("Song1", LoadSceneMode.Single);
+        }
+        else if (songPosition == 2)
+        {
+            SceneManager.LoadScene("Song2", LoadSceneMode.Single);
+        }
+        else
+        {
+            songPosition = 0;
+        }
     }
 
     private void NextSong()
     {
         Debug.Log("Next Song");
         songPosition++;
-        songInfo.transform.Translate(800, 0, 0);
+        songInfo.transform.Translate(1000, 0, 0, Space.Self);
     }
 
     private void PreviousSong()
     {
         Debug.Log("Previous Song");
         songPosition--;
-        songInfo.transform.Translate(-800, 0, 0);
+        songInfo.transform.Translate(-1000, 0, 0, Space.Self);
     }
 
     private void OpenMenu()
