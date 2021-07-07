@@ -7,12 +7,11 @@ using TMPro;
 
 public class LevelSelectMenu : MonoBehaviour
 {
-    public Button nextButton;
-    public Button previousButton;
-    public Button menuButton;
-    public Button playButton;
-    public List<GameObject> songList = new List<GameObject>();
-    public GameObject song1, song2, song3;
+    public Button nextButton, previousButton, menuButton, playButton;
+    private int songPosition;
+    public GameObject songInfo;
+    //public List<GameObject> songList = new List<GameObject>();
+    //public GameObject song1, song2, song3;
 
 
     // Start is called before the first frame update
@@ -29,31 +28,34 @@ public class LevelSelectMenu : MonoBehaviour
         menuButton.onClick.AddListener(delegate { OpenMenu(); });
         playButton.onClick.AddListener(delegate { StartGame(); });
 
-        song1 = GameObject.Find("Song1");
-        song2 = GameObject.Find("Song2");
-        song2.SetActive(false);
-        song3 = GameObject.Find("Song3");
-        song3.SetActive(false);
+        songPosition = 0;
+        songInfo = GameObject.Find("SongInfo");
 
-        songList.Add(song1);
-        songList.Add(song2);
-        songList.Add(song3);
+        //song1 = GameObject.Find("Song1");
+        //song2 = GameObject.Find("Song2");
+        //song2.SetActive(false);
+        //song3 = GameObject.Find("Song3");
+        //song3.SetActive(false);
+
+        //songList.Add(song1);
+        //songList.Add(song2);
+        //songList.Add(song3);
     }
 
-    public void DisplaySong1()
-    {
-        song1.SetActive(true);
-    }
+    //public void DisplaySong1()
+    //{
+    //    song1.SetActive(true);
+    //}
 
-    public void DisplaySong2()
-    {
-        song2.SetActive(true);
-    }
+    //public void DisplaySong2()
+    //{
+    //    song2.SetActive(true);
+    //}
 
-    public void DisplaySong3()
-    {
-        song3.SetActive(true);
-    }
+    //public void DisplaySong3()
+    //{
+    //    song3.SetActive(true);
+    //}
 
     private void StartGame()
     {
@@ -64,12 +66,15 @@ public class LevelSelectMenu : MonoBehaviour
     private void NextSong()
     {
         Debug.Log("Next Song");
-        songList.Count();
+        songPosition++;
+        songInfo.transform.Translate(800, 0, 0);
     }
 
     private void PreviousSong()
     {
         Debug.Log("Previous Song");
+        songPosition--;
+        songInfo.transform.Translate(-800, 0, 0);
     }
 
     private void OpenMenu()

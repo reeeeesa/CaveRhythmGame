@@ -5,13 +5,10 @@ using UnityEngine;
 // Purpose: 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private int score;
+    [SerializeField] private int score, speed;
     [SerializeField] private int health;
     [SerializeField] private MenuManager menuManager;
-    KeyCode leftArrow = KeyCode.LeftArrow;
-    KeyCode rightArrow = KeyCode.RightArrow;
-    KeyCode upArrow = KeyCode.UpArrow;
-    KeyCode downArrow = KeyCode.DownArrow;
+    private Vector3 bounds;
 
     public int Score
     {
@@ -23,6 +20,8 @@ public class Player : MonoBehaviour
     {
         menuManager = FindObjectOfType<MenuManager>();
         health = 10;
+        bounds = new Vector2(-1, -1);
+        speed = 10;
     }
 
     // Update is called once per frame
@@ -31,9 +30,18 @@ public class Player : MonoBehaviour
         Movement();
     }
 
+    void LateUpdate()
+    {
+        Vector3 viewPos = transform.position;
+        viewPos.x = Mathf.Clamp(viewPos.x, bounds.x, bounds.x * -1);
+        viewPos.y = Mathf.Clamp(viewPos.y, bounds.y, bounds.y * -1);
+        transform.position = viewPos;
+    }
+
     public void Movement()
     {
-        if (Input.GetKeyDown(leftArrow)){
+        transform.position = transform.position + new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, Input.GetAxis("Vertical") * speed * Time.deltaTime, 0); // zoom zoom
+        /*if (Input.GetKeyDown(leftArrow)){
             transform.position = transform.position + new Vector3(-1, 0, 0);
         }
         if (Input.GetKeyDown(rightArrow))
@@ -47,8 +55,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(downArrow))
         {
             transform.position = transform.position + new Vector3(0, -1, 0);
-        }
-
+        }*/
     }
 
     // ontrigger to detect a collision
@@ -67,6 +74,7 @@ public class Player : MonoBehaviour
         if (other.CompareTag("NPC"))
         {
             health--;
+            Debug.Log("Health lost");
         }
 
         if (health <= 0)
