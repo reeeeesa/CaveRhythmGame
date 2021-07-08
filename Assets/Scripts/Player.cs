@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     [SerializeField] private int health;
     [SerializeField] private MenuManager menuManager;
     private Vector3 bounds;
+    private CapsuleCollider cCollider;
+    
 
     public int Score
     {
@@ -22,6 +24,7 @@ public class Player : MonoBehaviour
         health = 10;
         bounds = new Vector2(-1, -1);
         speed = 10;
+        cCollider = GetComponent<CapsuleCollider>();
     }
 
     // Update is called once per frame
@@ -40,22 +43,22 @@ public class Player : MonoBehaviour
 
     public void Movement()
     {
-        transform.position = transform.position + new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, Input.GetAxis("Vertical") * speed * Time.deltaTime, 0); // zoom zoom
-        /*if (Input.GetKeyDown(leftArrow)){
-            transform.position = transform.position + new Vector3(-1, 0, 0);
-        }
-        if (Input.GetKeyDown(rightArrow))
+        //transform.position = transform.position + new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, Input.GetAxis("Vertical") * speed * Time.deltaTime, 0); // zoom zoom
+        //if (Input.GetKeyDown(leftArrow)){
+        //    transform.position = transform.position + new Vector3(-1, 0, 0);
+        //}
+        //if (Input.GetKeyDown(rightArrow))
+        //{
+        //    transform.position = transform.position + new Vector3(1, 0, 0);
+        //}
+        //if (Input.GetKeyDown(upArrow))
+        //{
+        //    transform.position = transform.position + new Vector3(0, 1, 0);
+        //}
+        if (Input.GetKey(KeyCode.DownArrow))
         {
-            transform.position = transform.position + new Vector3(1, 0, 0);
+            cCollider.height = 1;
         }
-        if (Input.GetKeyDown(upArrow))
-        {
-            transform.position = transform.position + new Vector3(0, 1, 0);
-        }
-        if (Input.GetKeyDown(downArrow))
-        {
-            transform.position = transform.position + new Vector3(0, -1, 0);
-        }*/
     }
 
     // ontrigger to detect a collision
