@@ -23,12 +23,19 @@ public class SongManager : MonoBehaviour
     //an AudioSource attached to this GameObject that will play the music.
     public AudioSource musicSource;
 
+    //the index of the next note to be spawned
+    private int nextIndex = 0;
+
+    //keep all the position-in-beats of notes in the song
+    private float[] notes = new float[] { 2f, 3f, 4f, 6f, 7f, 8f };
+
+    //Note prefabs
+    public List<GameObject> objectSpawnList = new List<GameObject>();
+    public GameObject jumpUpPrefab, duckDownPrefab, dodgeLeftPrefab, dodgeRightPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
-        //Load the AudioSource attached to the Conductor GameObject
-        musicSource = GetComponent<AudioSource>();
-
         //Calculate the number of seconds in each beat
         secPerBeat = 60f / songBpm;
 
@@ -47,5 +54,15 @@ public class SongManager : MonoBehaviour
 
         //determine how many beats since the song started
         songPositionInBeats = songPosition / secPerBeat;
+
+        if (nextIndex < notes.Length && notes[nextIndex] < songPositionInBeats + 4)
+        {
+            int randomNum = Random.Range(0, objectSpawnList.Count);
+            Instantiate(objectSpawnList[randomNum], this.transform.position, this.transform.rotation);
+
+            //initialize the fields of the music note
+
+            nextIndex++;
+        }
     }
 }

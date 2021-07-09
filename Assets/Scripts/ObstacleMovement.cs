@@ -18,7 +18,7 @@ public class ObstacleMovement : MonoBehaviour
     {
         speed = 10;
         songManager = FindObjectOfType<SongManager>();
-        beatOfThisNote = songManager.
+        songPosInBeats = songManager.songPositionInBeats;
     }
 
 
@@ -26,11 +26,8 @@ public class ObstacleMovement : MonoBehaviour
     //the update function of music notes
     void Update()
     {
-        transform.position = Vector2.Lerp(
-            SpawnPos,
-            RemovePos,
-            (BeatsShownInAdvance - (beatOfThisNote - songPosInBeats)) / BeatsShownInAdvance
-        );
+        //transform.position = Vector3.Lerp(SpawnPos, RemovePos,(BeatsShownInAdvance - (beatOfThisNote - songPosInBeats)) / BeatsShownInAdvance);
+        Movement();
     }
 
 

@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Movement();
     }
 
@@ -47,10 +48,10 @@ public class Player : MonoBehaviour
         //if (Input.GetKeyDown(leftArrow)){
         //    transform.position = transform.position + new Vector3(-1, 0, 0);
         //}
-        //if (Input.GetKeyDown(rightArrow))
-        //{
-        //    transform.position = transform.position + new Vector3(1, 0, 0);
-        //}
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            
+        }
         //if (Input.GetKeyDown(upArrow))
         //{
         //    transform.position = transform.position + new Vector3(0, 1, 0);

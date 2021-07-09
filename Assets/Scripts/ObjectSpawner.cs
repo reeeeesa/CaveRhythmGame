@@ -27,7 +27,7 @@ public class ObjectSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SpawnObjects();
+        //SpawnObjects();
     }
 
 
