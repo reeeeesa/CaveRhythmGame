@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1389394006777819054}
   m_LocalRotation: {x: -0.6494663, y: 0.26536188, z: -0.092667475, w: 0.7065334}
-  m_LocalPosition: {x: -0.070313185, y: -0.65748274, z: 8.118945}
+  m_LocalPosition: {x: -0.070313185, y: -0.65748274, z: 0}
   m_LocalScale: {x: 32.049404, y: 32.049393, z: 41.0494}
   m_Children: []
   m_Father: {fileID: 8471404469214127508}
@@ -107,7 +107,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2246677401347684132}
   m_LocalRotation: {x: -0.42385042, y: -0.5521729, z: 0.6356766, w: 0.33372316}
-  m_LocalPosition: {x: 1.3702548, y: 2.9024472, z: 9.721354}
+  m_LocalPosition: {x: 1.3702548, y: 2.9024472, z: 0}
   m_LocalScale: {x: 32.049408, y: 32.049393, z: 30.049404}
   m_Children: []
   m_Father: {fileID: 8471404469214127508}
@@ -188,7 +188,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2411908271633029853}
   m_LocalRotation: {x: -0.6863747, y: -0.16706085, z: 0.16498058, w: 0.6883036}
-  m_LocalPosition: {x: 1.3798909, y: -0.3884616, z: 9.219103}
+  m_LocalPosition: {x: 1.3798909, y: -0.3884616, z: 0}
   m_LocalScale: {x: 26.299149, y: 35.131954, z: 42.92852}
   m_Children: []
   m_Father: {fileID: 8471404469214127508}
@@ -269,7 +269,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5921355742183161788}
   m_LocalRotation: {x: -0.30834824, y: 0.6424508, z: -0.63305265, w: 0.30236208}
-  m_LocalPosition: {x: -1.6100558, y: 2.6430712, z: 8.691869}
+  m_LocalPosition: {x: -1.6100558, y: 2.6430712, z: 0}
   m_LocalScale: {x: 26.494675, y: 26.494677, z: 25.350363}
   m_Children: []
   m_Father: {fileID: 8471404469214127508}
@@ -350,7 +350,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6892074971910360668}
   m_LocalRotation: {x: -0.68315953, y: -0.22074613, z: 0.37663192, w: 0.5854166}
-  m_LocalPosition: {x: 2.2844338, y: 0.40051928, z: 8.753834}
+  m_LocalPosition: {x: 2.2844338, y: 0.40051928, z: 0}
   m_LocalScale: {x: 29.825651, y: 29.825638, z: 41.049404}
   m_Children: []
   m_Father: {fileID: 8471404469214127508}
@@ -455,6 +455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  songManager: {fileID: 0}
 --- !u!65 &7384938190209568364
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -467,4 +468,4 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3.1912878, y: 4.279589, z: 1}
-  m_Center: {x: 1.2638279, y: 1.6397946, z: 8.3}
+  m_Center: {x: 1.2638279, y: 1.6397946, z: 0}

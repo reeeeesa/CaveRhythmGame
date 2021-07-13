@@ -26,8 +26,11 @@ public class SongManager : MonoBehaviour
     //the index of the next note to be spawned
     private int nextIndex = 0;
 
+    //beat the current note will be spawned on
+    public float beatOfThisNote;
+
     //keep all the position-in-beats of notes in the song
-    private float[] notes = new float[] { 2f, 3f, 4f, 6f, 7f, 8f };
+    private float[] notes = new float[] { 6f, 7f, 8f, 10f, 11f, 12f, 152f };
 
     //Note prefabs
     public List<GameObject> objectSpawnList = new List<GameObject>();
@@ -36,6 +39,9 @@ public class SongManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Load the AudioSource attached to the Conductor GameObject
+        musicSource = GetComponent<AudioSource>();
+
         //Calculate the number of seconds in each beat
         secPerBeat = 60f / songBpm;
 
@@ -44,6 +50,11 @@ public class SongManager : MonoBehaviour
 
         //Start the music
         musicSource.Play();
+
+        objectSpawnList.Add(jumpUpPrefab); //0
+        objectSpawnList.Add(duckDownPrefab); //1
+        objectSpawnList.Add(dodgeRightPrefab); //2
+        objectSpawnList.Add(dodgeLeftPrefab); //3
     }
 
     // Update is called once per frame
@@ -64,5 +75,7 @@ public class SongManager : MonoBehaviour
 
             nextIndex++;
         }
+        
+        beatOfThisNote = notes[nextIndex];
     }
 }
