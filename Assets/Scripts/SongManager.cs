@@ -30,11 +30,11 @@ public class SongManager : MonoBehaviour
     public float beatOfThisNote;
 
     //keep all the position-in-beats of notes in the song
-    private float[] notes = new float[] { 6f, 7f, 8f, 10f, 11f, 12f, 152f };
+    private readonly float[] notes = new float[] { 6f, 7f, 8f, 10f, 11f, 12f, 152f };
 
     //Note prefabs
     public List<GameObject> objectSpawnList = new List<GameObject>();
-    public GameObject jumpUpPrefab, duckDownPrefab, dodgeLeftPrefab, dodgeRightPrefab;
+    public GameObject jumpUpPrefab, dodgeLeftPrefab, dodgeRightPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -52,9 +52,8 @@ public class SongManager : MonoBehaviour
         musicSource.Play();
 
         objectSpawnList.Add(jumpUpPrefab); //0
-        objectSpawnList.Add(duckDownPrefab); //1
-        objectSpawnList.Add(dodgeRightPrefab); //2
-        objectSpawnList.Add(dodgeLeftPrefab); //3
+        objectSpawnList.Add(dodgeRightPrefab); //1
+        objectSpawnList.Add(dodgeLeftPrefab); //2
     }
 
     // Update is called once per frame

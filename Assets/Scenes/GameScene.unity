@@ -191,7 +191,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &59465670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -657,9 +657,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  speed: 0
   health: 0
   menuManager: {fileID: 0}
+  speed: 0
+  rightTarget: {x: 1, y: -0.47, z: -7.5}
+  leftTarget: {x: -1, y: -0.47, z: -7.5}
+  upTarget: {x: 0, y: 1, z: -7.5}
 --- !u!4 &307738683
 Transform:
   m_ObjectHideFlags: 0
@@ -2376,7 +2379,6 @@ MonoBehaviour:
   beatOfThisNote: 0
   objectSpawnList: []
   jumpUpPrefab: {fileID: 9078871407584649784, guid: 4d2fc21360574c642b9601dcae21051d, type: 3}
-  duckDownPrefab: {fileID: 1027505759790951707, guid: 744d7918ed5149d45bf17caf4c778731, type: 3}
   dodgeLeftPrefab: {fileID: 9141086612289650478, guid: 25d72cb7545b5c949999edb1048e6fe7, type: 3}
   dodgeRightPrefab: {fileID: 1246181728667176720, guid: 5f58a73ed333c4b4fa1aafdbf4270687, type: 3}
 --- !u!82 &1154534310

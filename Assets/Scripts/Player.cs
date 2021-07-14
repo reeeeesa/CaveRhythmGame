@@ -5,12 +5,18 @@ using UnityEngine;
 // Purpose: 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private int score, speed;
+    [SerializeField] private int score;
     [SerializeField] private int health;
     [SerializeField] private MenuManager menuManager;
-    private Vector3 bounds;
+    //private Vector3 bounds;
     private CapsuleCollider cCollider;
     
+    // Movement variables
+    public float speed = 1;
+    public Vector3 rightTarget = new Vector3(1, -0.47f, -7.5f);
+    public Vector3 leftTarget = new Vector3(-1, -0.47f, -7.5f);
+    public Vector3 upTarget = new Vector3(0, 0.53f, -7.5f);
+    private Vector3 origin;
 
     public int Score
     {
@@ -22,9 +28,10 @@ public class Player : MonoBehaviour
     {
         menuManager = FindObjectOfType<MenuManager>();
         health = 10;
-        bounds = new Vector2(-1, -1);
         speed = 10;
         cCollider = GetComponent<CapsuleCollider>();
+
+        origin = transform.position;
     }
 
     // Update is called once per frame
@@ -34,32 +41,49 @@ public class Player : MonoBehaviour
         Movement();
     }
 
-    void LateUpdate()
-    {
-        Vector3 viewPos = transform.position;
-        viewPos.x = Mathf.Clamp(viewPos.x, bounds.x, bounds.x * -1);
-        viewPos.y = Mathf.Clamp(viewPos.y, bounds.y, bounds.y * -1);
-        transform.position = viewPos;
-    }
-
     public void Movement()
     {
-        //transform.position = transform.position + new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, Input.GetAxis("Vertical") * speed * Time.deltaTime, 0); // zoom zoom
-        //if (Input.GetKeyDown(leftArrow)){
-        //    transform.position = transform.position + new Vector3(-1, 0, 0);
-        //}
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            StartCoroutine(MoveLeft());
+        }
+        if (Input.GetKeyUp(KeyCode.LeftArrow)) leftTarget = new Vector3(-1, -0.47f, -7.5f);
+
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            
+            StartCoroutine(MoveRight());
         }
-        //if (Input.GetKeyDown(upArrow))
-        //{
-        //    transform.position = transform.position + new Vector3(0, 1, 0);
-        //}
+        if (Input.GetKeyUp(KeyCode.RightArrow)) rightTarget = new Vector3(1, -0.47f, -7.5f);
+        
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            StartCoroutine(MoveUp());
+        }
+        if (Input.GetKeyUp(KeyCode.UpArrow)) upTarget = new Vector3(0, 0.53f, -7.5f);
+
         if (Input.GetKey(KeyCode.DownArrow))
         {
             cCollider.height = 1;
         }
+    }
+
+    IEnumerator MoveRight()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, rightTarget, speed * Time.deltaTime);
+        if (transform.position == rightTarget) rightTarget = origin;
+        yield return 0;
+    }
+    IEnumerator MoveLeft()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, leftTarget, speed * Time.deltaTime);
+        if (transform.position == leftTarget) leftTarget = origin;
+        yield return 0;
+    }
+    IEnumerator MoveUp()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, upTarget, speed * Time.deltaTime);
+        if (transform.position == upTarget) upTarget = origin;
+        yield return 0;
     }
 
     // ontrigger to detect a collision
