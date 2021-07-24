@@ -56,6 +56,12 @@ public class LevelSelectMenu : MonoBehaviour
     //{
     //    song3.SetActive(true);
     //}
+    void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.RightArrow)) NextSong();
+        if (Input.GetKeyUp(KeyCode.LeftArrow)) PreviousSong();
+        if (Input.GetKeyUp(KeyCode.KeypadEnter)) StartGame();
+    }
 
     private void StartGame()
     {
@@ -97,8 +103,5 @@ public class LevelSelectMenu : MonoBehaviour
         Debug.Log("Open Menu");
     }
     // Update is called once per frame
-    void Update()
-    {
-
-    }
+    
 }
