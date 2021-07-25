@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 // Purpose: 
 public class Player : MonoBehaviour
@@ -8,8 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private int score;
     [SerializeField] private int health;
     [SerializeField] private MenuManager menuManager;
-    //private Vector3 bounds;
-    private CapsuleCollider cCollider;
+    public Slider healthSlider;
     
     // Movement variables
     public float speed = 0.8f;
@@ -34,7 +34,6 @@ public class Player : MonoBehaviour
         menuManager = FindObjectOfType<MenuManager>();
         health = 10;
         speed = 10;
-        cCollider = GetComponent<CapsuleCollider>();
 
         origin = transform.position;
     }
@@ -42,7 +41,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        healthSlider.value = health;
         Movement();
     }
 
