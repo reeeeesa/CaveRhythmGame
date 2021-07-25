@@ -374,6 +374,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   songManager: {fileID: 0}
+  beatOfThisNote: 0
+  songPosInBeats: 0
+  t: 0
 --- !u!65 &1942786480328772781
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -385,5 +388,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.422538, y: 1.2734053, z: 1}
-  m_Center: {x: 0.2050538, y: -0.52402675, z: 0}
+  m_Size: {x: 6.422538, y: 0.93817234, z: 0.1432938}
+  m_Center: {x: 0.2050538, y: -0.69164324, z: -0.055872172}

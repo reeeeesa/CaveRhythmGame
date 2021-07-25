@@ -30,18 +30,21 @@ public class PauseMenu : MonoBehaviour
     private void ResumeGame()
     {
         Time.timeScale = 1f; // Start time when pause menu active is false
+        AudioListener.pause = false;
         gameObject.SetActive(false);
     }
 
     private void RestartGame()
     {
         Time.timeScale = 1f;
+        AudioListener.pause = false;
         SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
     }
 
     private void LoadMainMenu()
     {
         Time.timeScale = 1f;
+        AudioListener.pause = false;
         SceneManager.LoadScene("0StartScene", LoadSceneMode.Single);
     }
 

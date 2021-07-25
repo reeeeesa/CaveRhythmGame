@@ -27,11 +27,14 @@ public class GameOverMenu : MonoBehaviour
     {
         SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
         Time.timeScale = 1f;
+        AudioListener.pause = false;
     }
 
     private void LoadMainMenu()
     {
         SceneManager.LoadScene("0StartScene", LoadSceneMode.Single);
+        Time.timeScale = 1f;
+        AudioListener.pause = false;
     }
 
     // Update is called once per frame

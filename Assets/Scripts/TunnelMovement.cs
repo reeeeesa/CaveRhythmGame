@@ -35,7 +35,7 @@ public class TunnelMovement : MonoBehaviour
         if (transform.position.z < -30f)
         {
             Destroy(this.gameObject);
-            Debug.Log("Tunnel Destroyed");
+            //Debug.Log("Tunnel Destroyed");
         }
     }
 }

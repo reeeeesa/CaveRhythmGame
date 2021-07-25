@@ -35,5 +35,9 @@ public class ScoreEntry : MonoBehaviour
         // SaveData takes the players score and a file name e.g. "/filename.dat"
         dataManager.SaveData(nameInput.text, player.Score, "playerscore.dat");
         SceneManager.LoadScene("1ScoreboardScene", LoadSceneMode.Single);
+        
+        //Reset timescale
+        Time.timeScale = 1f;
+        AudioListener.pause = false;
     }
 }

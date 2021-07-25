@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     private CapsuleCollider cCollider;
     
     // Movement variables
-    public float speed = 1;
+    public float speed = 0.8f;
     public Vector3 rightTarget = new Vector3(1, -0.47f, -7.5f);
     public Vector3 leftTarget = new Vector3(-1, -0.47f, -7.5f);
     public Vector3 upTarget = new Vector3(0, 0.53f, -7.5f);
@@ -21,6 +21,11 @@ public class Player : MonoBehaviour
     public int Score
     {
         get => score;
+    }
+
+    public int Health
+    {
+        get => health;
     }
 
     // Start is called before the first frame update
@@ -61,10 +66,6 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.UpArrow)) upTarget = new Vector3(0, 0.53f, -7.5f);
 
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            cCollider.height = 1;
-        }
     }
 
     IEnumerator MoveRight()

@@ -30,11 +30,14 @@ public class SongManager : MonoBehaviour
     public float beatOfThisNote;
 
     //keep all the position-in-beats of notes in the song
-    private readonly float[] notes = new float[] { 6f, 7f, 8f, 10f, 11f, 12f, 152f };
+    private readonly float[] notes = new float[] { 7, 8, 12, 15, 16, 19, 20, 21, 23, 25, 27, 29, 30, 33, 34, 37, 39, 41, 43, 45, 47, 49, 51, 53, 54, 55, 57, 58, 59, 61, 63, 65, 66, 67, 68, 69, 73, 77, 81, 85, 89, 93, 97, 98, 99, 100, 101, 105, 106, 107, 113, 114, 115, 121, 122, 123, 129, 130, 131, 134, 135, 136, 137, 142, 143, 144, 145, 150, 151, 152, 153, 158, 159, 160, 161, 165 };
 
     //Note prefabs
     public List<GameObject> objectSpawnList = new List<GameObject>();
     public GameObject jumpUpPrefab, dodgeLeftPrefab, dodgeRightPrefab;
+
+    //for scene management
+    private MenuManager menuManager;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +53,8 @@ public class SongManager : MonoBehaviour
 
         //Start the music
         musicSource.Play();
+
+        menuManager = FindObjectOfType<MenuManager>();
 
         objectSpawnList.Add(jumpUpPrefab); //0
         objectSpawnList.Add(dodgeRightPrefab); //1
@@ -73,6 +78,10 @@ public class SongManager : MonoBehaviour
             //initialize the fields of the music note
 
             nextIndex++;
+        }
+        if (songPositionInBeats >= 167)
+        {
+            menuManager.DisplayScoreEntryUI();
         }
         
         beatOfThisNote = notes[nextIndex];

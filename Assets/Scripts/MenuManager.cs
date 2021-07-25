@@ -13,6 +13,11 @@ public class MenuManager : MonoBehaviour
     public GameObject gameOverMenu;
 
     // Start is called before the first frame update
+    private void Start()
+    {
+        //AudioListener.pause = false;
+    }
+
     void Awake()
     {
         // Find and assign object then hide the menu
@@ -22,6 +27,7 @@ public class MenuManager : MonoBehaviour
         scoreEntryUI.SetActive(false);
         gameOverMenu = GameObject.Find("GameOverMenu");
         gameOverMenu.SetActive(false);
+
     }
 
     private void Update()
@@ -37,17 +43,20 @@ public class MenuManager : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0; // Stop time while pause menu is active
+        AudioListener.pause = true;
     }
 
     public void DisplayScoreEntryUI()
     {
         scoreEntryUI.SetActive(true);
         Time.timeScale = 0; // Stop time while pause menu is active
+        AudioListener.pause = true;
     }
 
     public void DisplayGameOverMenu()
     {
         gameOverMenu.SetActive(true);
         Time.timeScale = 0; // Stop time while pause menu is active
+        AudioListener.pause = true;
     }
 }

@@ -132,6 +132,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   songManager: {fileID: 0}
+  beatOfThisNote: 0
+  songPosInBeats: 0
+  t: 0
 --- !u!65 &2656539430118091771
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -143,8 +146,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.408071, y: 4.2586284, z: 1}
-  m_Center: {x: -1.2040355, y: 1.629314, z: 0}
+  m_Size: {x: 2.7562292, y: 4.2586284, z: 0.14329377}
+  m_Center: {x: -1.5299565, y: 1.629314, z: -0.055872142}
 --- !u!1 &2814541910457605672
 GameObject:
   m_ObjectHideFlags: 0
