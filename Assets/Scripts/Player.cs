@@ -6,10 +6,12 @@ using UnityEngine.UI;
 // Purpose: 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private int score;
     [SerializeField] private int health;
     [SerializeField] private MenuManager menuManager;
+    [SerializeField] private SongManager songManager;
+    [SerializeField] private Animator animator;
     public Slider healthSlider;
+    
     
     // Movement variables
     public float speed = 0.8f;
@@ -18,10 +20,6 @@ public class Player : MonoBehaviour
     public Vector3 upTarget = new Vector3(0, 0.53f, -7.5f);
     private Vector3 origin;
 
-    public int Score
-    {
-        get => score;
-    }
 
     public int Health
     {
@@ -32,6 +30,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         menuManager = FindObjectOfType<MenuManager>();
+        songManager = FindObjectOfType<SongManager>();
         health = 10;
         speed = 10;
 
@@ -45,7 +44,7 @@ public class Player : MonoBehaviour
         Movement();
     }
 
-    public void Movement()
+    private void Movement()
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -94,7 +93,9 @@ public class Player : MonoBehaviour
         if (other.CompareTag("NPC"))
         {
             health--;
+            songManager.LostCombo();
             Debug.Log("Health lost");
+
         }
 
         if (health <= 0)

@@ -12,7 +12,7 @@ public class ScoreEntry : MonoBehaviour
     public TMP_Dropdown optionDropdown;
     public TMP_InputField nameInput;
     public Button submitButton;
-    public Player player;
+    public SongManager songManager;
 
     // Start is called before the first frame update
     void Start()
@@ -27,13 +27,13 @@ public class ScoreEntry : MonoBehaviour
         submitButton.onClick.AddListener(delegate { Submit(); });
 
         dataManager = FindObjectOfType<ScoreboardDataManager>();
-        player = FindObjectOfType<Player>();
+        songManager = FindObjectOfType<SongManager>();
     }
 
     void Submit()
     {
         // SaveData takes the players score and a file name e.g. "/filename.dat"
-        dataManager.SaveData(nameInput.text, player.Score, "playerscore.dat");
+        dataManager.SaveData(nameInput.text, songManager.Score, "playerscore.dat");
         SceneManager.LoadScene("1ScoreboardScene", LoadSceneMode.Single);
         
         //Reset timescale
