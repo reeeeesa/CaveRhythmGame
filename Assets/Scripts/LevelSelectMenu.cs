@@ -8,10 +8,8 @@ using TMPro;
 public class LevelSelectMenu : MonoBehaviour
 {
     public Button nextButton, previousButton, menuButton, playButton;
-    private int songPosition;
-    public GameObject songInfo;
-    //public List<GameObject> songList = new List<GameObject>();
-    //public GameObject song1, song2, song3;
+    public int songPosition;
+    public Slider songSlider;
 
 
     // Start is called before the first frame update
@@ -29,33 +27,9 @@ public class LevelSelectMenu : MonoBehaviour
         playButton.onClick.AddListener(delegate { StartGame(); });
 
         songPosition = 0;
-        songInfo = GameObject.Find("SongInfo");
-
-        //song1 = GameObject.Find("Song1");
-        //song2 = GameObject.Find("Song2");
-        //song2.SetActive(false);
-        //song3 = GameObject.Find("Song3");
-        //song3.SetActive(false);
-
-        //songList.Add(song1);
-        //songList.Add(song2);
-        //songList.Add(song3);
+        songSlider.value = songPosition;
     }
 
-    //public void DisplaySong1()
-    //{
-    //    song1.SetActive(true);
-    //}
-
-    //public void DisplaySong2()
-    //{
-    //    song2.SetActive(true);
-    //}
-
-    //public void DisplaySong3()
-    //{
-    //    song3.SetActive(true);
-    //}
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.RightArrow)) NextSong();
@@ -88,19 +62,20 @@ public class LevelSelectMenu : MonoBehaviour
     {
         Debug.Log("Next Song");
         songPosition++;
-        songInfo.transform.Translate(1000, 0, 0, Space.Self);
+        songSlider.value = songPosition;
     }
 
     private void PreviousSong()
     {
         Debug.Log("Previous Song");
         songPosition--;
-        songInfo.transform.Translate(-1000, 0, 0, Space.Self);
+        songSlider.value = songPosition;
     }
 
     private void OpenMenu()
     {
         Debug.Log("Open Menu");
+        SceneManager.LoadScene("0StartScene", LoadSceneMode.Single);
     }
     // Update is called once per frame
     

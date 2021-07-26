@@ -6,11 +6,13 @@ using UnityEngine.UI;
 // Purpose: 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private int health;
+
+    [SerializeField] private int score, comboMult, health;
     [SerializeField] private MenuManager menuManager;
-    [SerializeField] private SongManager songManager;
+    //[SerializeField] private SongManager songManager;
     [SerializeField] private Animator animator;
     public Slider healthSlider;
+
     
     
     // Movement variables
@@ -20,19 +22,24 @@ public class Player : MonoBehaviour
     public Vector3 upTarget = new Vector3(0, 0.53f, -7.5f);
     private Vector3 origin;
 
-
-    public int Health
+    public int Score
     {
-        get => health;
+        get => score;
+    }
+
+    public int Combo
+    {
+        get => comboMult;
     }
 
     // Start is called before the first frame update
     void Start()
     {
         menuManager = FindObjectOfType<MenuManager>();
-        songManager = FindObjectOfType<SongManager>();
+        //songManager = FindObjectOfType<SongManager>();
         health = 10;
         speed = 10;
+        comboMult = 0;
 
         origin = transform.position;
     }
@@ -44,25 +51,43 @@ public class Player : MonoBehaviour
         Movement();
     }
 
+    public void LostCombo()
+    {
+        comboMult = 0;
+    }
+
     private void Movement()
     {
+        //move left
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             StartCoroutine(MoveLeft());
         }
-        if (Input.GetKeyUp(KeyCode.LeftArrow)) leftTarget = new Vector3(-1, -0.47f, -7.5f);
-
+        if (Input.GetKeyUp(KeyCode.LeftArrow))
+        {
+            leftTarget = new Vector3(-1, -0.47f, -7.5f);
+            transform.position = origin;
+        }
+        //move right
         if (Input.GetKey(KeyCode.RightArrow))
         {
             StartCoroutine(MoveRight());
         }
-        if (Input.GetKeyUp(KeyCode.RightArrow)) rightTarget = new Vector3(1, -0.47f, -7.5f);
-        
+        if (Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            rightTarget = new Vector3(1, -0.47f, -7.5f);
+            transform.position = origin;
+        }
+        //move up
         if (Input.GetKey(KeyCode.UpArrow))
         {
             StartCoroutine(MoveUp());
         }
-        if (Input.GetKeyUp(KeyCode.UpArrow)) upTarget = new Vector3(0, 0.53f, -7.5f);
+        if (Input.GetKeyUp(KeyCode.UpArrow)) 
+        { 
+           upTarget = new Vector3(0, 0.53f, -7.5f);
+           transform.position = origin;
+        }
 
     }
 
@@ -93,9 +118,15 @@ public class Player : MonoBehaviour
         if (other.CompareTag("NPC"))
         {
             health--;
-            songManager.LostCombo();
+            LostCombo();
             Debug.Log("Health lost");
 
+        }
+
+        if (other.CompareTag("Score"))
+        {
+            score += (10 * comboMult);
+            comboMult++;
         }
 
         if (health <= 0)

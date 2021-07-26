@@ -8,24 +8,26 @@ using UnityEngine.SceneManagement;
 public class ScoreboardUI : MonoBehaviour
 {
     public TextMeshProUGUI rankText, nameText, scoreText;
-    public Button mainMenuButton, clearButton;
+    public Button mainMenuButton, clearButton, playButton;
     private ScoreboardDataManager sbDataManager;
 
     private void Start()
     {
         Component[] textComponents = GetComponentsInChildren<TextMeshProUGUI>(); // store all text in an array
-        rankText = textComponents[4].GetComponent<TextMeshProUGUI>();
-        nameText = textComponents[5].GetComponent<TextMeshProUGUI>();
-        scoreText = textComponents[6].GetComponent<TextMeshProUGUI>();
+        rankText = textComponents[0].GetComponent<TextMeshProUGUI>();
+        nameText = textComponents[1].GetComponent<TextMeshProUGUI>();
+        scoreText = textComponents[2].GetComponent<TextMeshProUGUI>();
 
         Component[] buttonComponents = GetComponentsInChildren<Button>(); // store all buttons in an array
         mainMenuButton = buttonComponents[0].GetComponent<Button>();
         clearButton = buttonComponents[1].GetComponent<Button>();
+        playButton = buttonComponents[2].GetComponent<Button>();
 
 
         sbDataManager = FindObjectOfType<ScoreboardDataManager>(); // set reference to dataManager
         mainMenuButton.onClick.AddListener(delegate { CloseScoreboard(); });
         clearButton.onClick.AddListener(delegate { ClearScoreboard(); });
+        playButton.onClick.AddListener(delegate { LoadLevelSelect(); });
         SetupBoard();
     }
 
@@ -38,6 +40,11 @@ public class ScoreboardUI : MonoBehaviour
     {
         sbDataManager.DeleteFile("/playerscore.dat");
         SetupBoard();
+    }
+
+    private void LoadLevelSelect()
+    {
+        SceneManager.LoadScene("2LevelSelectScene", LoadSceneMode.Single);
     }
 
 

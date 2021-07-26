@@ -6,16 +6,16 @@ using TMPro;
 
 public class HUDScript : MonoBehaviour
 {
-    public TextMeshProUGUI scoreTMP;
+    public TextMeshProUGUI scoreTMP, comboTMP;
     [SerializeField] private Button pauseButton;
     private MenuManager menuManager;
-    private SongManager songManager;
+    private Player player;
 
     // Start is called before the first frame update
     void Start()
     {
         menuManager = FindObjectOfType<MenuManager>();
-        songManager = FindObjectOfType<SongManager>();
+        player = FindObjectOfType<Player>();
 
         Component[] buttonComponents;
         buttonComponents = GetComponentsInChildren<Button>(); // store all the buttons in an array
@@ -27,6 +27,7 @@ public class HUDScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreTMP.text = songManager.Score.ToString();
+        scoreTMP.text = player.Score.ToString();
+        comboTMP.text = player.Combo.ToString();
     }
 }

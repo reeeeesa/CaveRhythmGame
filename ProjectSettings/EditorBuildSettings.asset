@@ -9,18 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/0StartScene.unity
     guid: c73daf3036053584f8a898b81caa75b2
   - enabled: 1
-    path: Assets/Scenes/GameScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
-  - enabled: 1
-    path: Assets/Scenes/Song1.unity
-    guid: 240b3fb4964dfc74ab3b979ef9e31422
-  - enabled: 1
-    path: Assets/Scenes/Song2.unity
-    guid: a47dcc5f7ac29624a87a14fe756a139a
-  - enabled: 1
     path: Assets/Scenes/1ScoreboardScene.unity
     guid: 0ae64199490dfc344aae8b0d991bf9cd
   - enabled: 1
     path: Assets/Scenes/2LevelSelectScene.unity
     guid: 70954d3ab5ff8054c92306b2d969cd15
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: d1c3109bdb54ad54c8a2b2838528e640
+  - enabled: 1
+    path: Assets/Scenes/Song1.unity
+    guid: 23c4a2c5470331d45a8cb760d49886ec
+  - enabled: 1
+    path: Assets/Scenes/Song2.unity
+    guid: c338ed45f8de3cb4284837650b17a239
   m_configObjects: {}

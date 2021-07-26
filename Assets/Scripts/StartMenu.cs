@@ -9,8 +9,7 @@ using TMPro;
 
 public class StartMenu : MonoBehaviour
 {
-    public Button startButton;
-    public Button quitButton;
+    public Button startButton, quitButton, scoreboardButton;
 
 
 
@@ -20,11 +19,13 @@ public class StartMenu : MonoBehaviour
         Component[] buttonComponents = GetComponentsInChildren<Button>();
         startButton = buttonComponents[0].GetComponent<Button>();
         quitButton = buttonComponents[1].GetComponent<Button>();
+        scoreboardButton = buttonComponents[2].GetComponent<Button>();
 
 
 
         startButton.onClick.AddListener(delegate { StartGame(); });
         quitButton.onClick.AddListener(delegate { QuitGame(); });
+        scoreboardButton.onClick.AddListener(delegate { OpenScoreboard(); });
     }
 
 
@@ -43,6 +44,11 @@ public class StartMenu : MonoBehaviour
         Application.Quit();
     }
 
+    private void OpenScoreboard()
+    {
+        Debug.Log("Load Scoreboard Scene");
+        SceneManager.LoadScene("1ScoreboardScene", LoadSceneMode.Single);
+    }
 
 
     // Update is called once per frame
