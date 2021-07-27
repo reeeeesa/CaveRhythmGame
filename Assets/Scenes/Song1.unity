@@ -2718,7 +2718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songBpm: 160
-  lastBeat: 260
+  lastBeat: 295
   secPerBeat: 0
   songPosition: 0
   songPositionInBeats: 0

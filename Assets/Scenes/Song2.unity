@@ -2717,8 +2717,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4629f09a442cea140965d8f26196b97b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  songBpm: 124
-  lastBeat: 167
+  songBpm: 155
+  lastBeat: 290
   secPerBeat: 0
   songPosition: 0
   songPositionInBeats: 0
@@ -2739,7 +2739,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bdb8a47db1739904a94effa133db8d9c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2415ef2a1b67ceb45965ca5c34e7b774, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
