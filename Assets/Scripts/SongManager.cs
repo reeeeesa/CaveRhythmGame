@@ -12,24 +12,25 @@ public class SongManager : MonoBehaviour
     [SerializeField] private float lastBeat;
 
     //The number of seconds for each song beat
-    public float secPerBeat;
+    private float secPerBeat;
 
     //Current song position, in seconds
-    public float songPosition;
+    private float songPosition;
 
     //Current song position, in beats
     public float songPositionInBeats;
 
     //How many seconds have passed since the song started
-    public float dspSongTime;
+    private float dspSongTime;
 
     //an AudioSource attached to this GameObject that will play the music.
-    public AudioSource musicSource;
+    [SerializeField] private AudioSource musicSource;
 
     //the index of the next note to be spawned
     private int nextIndex = 0;
 
     //beat the current note will be spawned on
+    //to be read by ObstacleMovement
     public float beatOfThisNote;
 
     //keep all the position-in-beats of notes in the song

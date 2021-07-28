@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1869682414946904446}
   m_Layer: 0
   m_Name: DuckDown
-  m_TagString: NPC
+  m_TagString: Miss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 5187999199025031859}
   m_Layer: 0
   m_Name: ScoreLine
-  m_TagString: Untagged
+  m_TagString: Hit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

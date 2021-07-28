@@ -111,7 +111,7 @@ public class Player : MonoBehaviour
     {
 
         // ontrigger to detect an obstacle using "NPC" Tag
-        if (other.CompareTag("NPC"))
+        if (other.CompareTag("Miss"))
         {
             health--;
             LostCombo();
@@ -119,7 +119,7 @@ public class Player : MonoBehaviour
 
         }
 
-        if (other.CompareTag("Score"))
+        if (other.CompareTag("Hit"))
         {
             score += (10 * (comboMult + 1));
             comboMult++;

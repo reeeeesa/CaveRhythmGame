@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 7090615121037200769}
   m_Layer: 0
   m_Name: ScoreLine
-  m_TagString: Score
+  m_TagString: Hit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -381,7 +381,7 @@ GameObject:
   - component: {fileID: 1942786480328772781}
   m_Layer: 0
   m_Name: JumpUp
-  m_TagString: NPC
+  m_TagString: Miss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
