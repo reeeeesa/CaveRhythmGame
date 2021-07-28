@@ -86,11 +86,6 @@ public class SongManager : MonoBehaviour
             nextIndex++;
         }
 
-        if (songPositionInBeats >= lastBeat)
-        {
-            menuManager.DisplayScoreEntryUI();
-        }
-
         beatOfThisNote = notesUTW[nextIndex];
     }
 
@@ -104,11 +99,6 @@ public class SongManager : MonoBehaviour
             Instantiate(objectSpawnList[randomNum], this.transform.position, this.transform.rotation);
 
             nextIndex++;
-        }
-
-        if (songPositionInBeats >= lastBeat)
-        {
-            menuManager.DisplayScoreEntryUI();
         }
 
         beatOfThisNote = notesHoney[nextIndex];
@@ -130,6 +120,11 @@ public class SongManager : MonoBehaviour
         else if (songNumber == 1)
         {
             HoneyUpdate();
+        }
+
+        if (songPositionInBeats >= lastBeat)
+        {
+            menuManager.DisplayScoreEntryUI();
         }
     }
 }

@@ -12,12 +12,6 @@ public class MenuManager : MonoBehaviour
     public GameObject scoreEntryUI;
     public GameObject gameOverMenu;
 
-    // Start is called before the first frame update
-    private void Start()
-    {
-        //AudioListener.pause = false;
-    }
-
     void Awake()
     {
         // Find and assign object then hide the menu

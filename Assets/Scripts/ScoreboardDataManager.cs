@@ -11,7 +11,7 @@ public class ScoreboardDataManager : MonoBehaviour
 
     public void SaveData(string playerName, int playerScore, string fileName)
     {
-        List<ScoreboardEntry> tempDataList = new List<ScoreboardEntry>();
+        List<ScoreboardEntry> tempDataList;
         tempDataList = LoadData(fileName);
         tempDataList.Add(new ScoreboardEntry() { name = playerName, score = playerScore });
         tempDataList = SortData(tempDataList);

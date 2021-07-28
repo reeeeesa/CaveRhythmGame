@@ -9,17 +9,14 @@ public class Player : MonoBehaviour
 
     [SerializeField] private int score, comboMult, health;
     [SerializeField] private MenuManager menuManager;
-    //[SerializeField] private SongManager songManager;
     [SerializeField] private Animator animator;
     public Slider healthSlider;
-
-    
     
     // Movement variables
-    public float speed = 0.8f;
-    public Vector3 rightTarget = new Vector3(1, -0.47f, -7.5f);
-    public Vector3 leftTarget = new Vector3(-1, -0.47f, -7.5f);
-    public Vector3 upTarget = new Vector3(0, 0.53f, -7.5f);
+    private float speed = 0.8f;
+    private Vector3 rightTarget = new Vector3(1, -0.47f, -7.5f);
+    private Vector3 leftTarget = new Vector3(-1, -0.47f, -7.5f);
+    private Vector3 upTarget = new Vector3(0, 0.53f, -7.5f);
     private Vector3 origin;
 
     public int Score
@@ -36,7 +33,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         menuManager = FindObjectOfType<MenuManager>();
-        //songManager = FindObjectOfType<SongManager>();
         health = 10;
         speed = 10;
         comboMult = 0;
@@ -125,7 +121,7 @@ public class Player : MonoBehaviour
 
         if (other.CompareTag("Score"))
         {
-            score += (10 * comboMult);
+            score += (10 * (comboMult + 1));
             comboMult++;
         }
 
