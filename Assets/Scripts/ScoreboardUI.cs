@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 // Display Scoreboard
 public class ScoreboardUI : MonoBehaviour
 {
-    public TextMeshProUGUI rankText, nameText, scoreText;
+    public TextMeshProUGUI rankText, nameText, homeroomText, scoreText;
     public Button mainMenuButton, clearButton, playButton;
     private ScoreboardDataManager sbDataManager;
 
@@ -16,7 +16,8 @@ public class ScoreboardUI : MonoBehaviour
         Component[] textComponents = GetComponentsInChildren<TextMeshProUGUI>(); // store all text in an array
         rankText = textComponents[0].GetComponent<TextMeshProUGUI>();
         nameText = textComponents[1].GetComponent<TextMeshProUGUI>();
-        scoreText = textComponents[2].GetComponent<TextMeshProUGUI>();
+        homeroomText = textComponents[2].GetComponent<TextMeshProUGUI>();
+        scoreText = textComponents[3].GetComponent<TextMeshProUGUI>();
 
         Component[] buttonComponents = GetComponentsInChildren<Button>(); // store all buttons in an array
         mainMenuButton = buttonComponents[0].GetComponent<Button>();
@@ -52,6 +53,7 @@ public class ScoreboardUI : MonoBehaviour
     {
         rankText.text = "";
         nameText.text = "";
+        homeroomText.text = "";
         scoreText.text = "";
         List<ScoreboardEntry> tempDataList = new List<ScoreboardEntry>();
         tempDataList = sbDataManager.LoadData("/playerscore.dat");
@@ -60,6 +62,7 @@ public class ScoreboardUI : MonoBehaviour
         {
             rankText.text = rankText.text + (i + 1).ToString() + "\n";
             nameText.text = nameText.text + tempDataList[i].name + "\n";
+            homeroomText.text = homeroomText.text + tempDataList[i].homeroom + "\n";
             scoreText.text = scoreText.text + tempDataList[i].score.ToString() + "\n";
         }
     }

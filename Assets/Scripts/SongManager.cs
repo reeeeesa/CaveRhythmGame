@@ -33,6 +33,9 @@ public class SongManager : MonoBehaviour
     //to be read by ObstacleMovement
     public float beatOfThisNote;
 
+    //amound to beats shown in advance
+    private const int BeatsShownInAdvance = 4;
+
     //keep all the position-in-beats of notes in the song
     private readonly float[] notesUTW = new float[]{ 7, 8, 12, 15, 16, 19, 20, 21, 23, 25, 27, 29, 30, 33, 34, 37, 39, 41, 43, 45, 47, 49, 51, 53, 54, 55, 57, 58, 59, 61, 63, 65, 66, 67, 68, 69, 73, 77, 81, 85, 89, 93, 97, 98, 99, 100, 101, 105, 106, 107, 113, 114, 115, 121, 122, 123, 129, 130, 131, 134, 135, 136, 137, 142, 143, 144, 145, 150, 151, 152, 153, 158, 159, 160, 161, 165, 175 };
     private readonly float[] notesHoney = new float[] { 7, 8, 12, 15, 16, 19, 20, 21, 23, 25, 27, 29, 30, 33, 34, 37, 39, 41, 43, 45, 47, 49, 51, 53, 54, 55, 57, 58, 59, 61, 63, 65, 66, 67, 68, 69, 73, 77, 81, 85, 89, 93, 97, 98, 99, 100, 101 };
@@ -92,7 +95,7 @@ public class SongManager : MonoBehaviour
 
     private void HoneyUpdate()
     {
-        if (nextIndex < notesHoney.Length && notesHoney[nextIndex] < songPositionInBeats + 4)
+        if (nextIndex < notesHoney.Length && notesHoney[nextIndex] < songPositionInBeats + BeatsShownInAdvance)
         {
 
             //initialize the fields of the music note

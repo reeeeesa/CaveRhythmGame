@@ -36,10 +36,4 @@ public class GameOverMenu : MonoBehaviour
         Time.timeScale = 1f;
         AudioListener.pause = false;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
