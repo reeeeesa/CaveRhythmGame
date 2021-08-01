@@ -8,7 +8,7 @@ using System.Runtime.Serialization.Formatters.Binary; //Serialise data
 //Purpose: Open and Save data to file
 public class ScoreboardDataManager : MonoBehaviour
 {
-
+    //Collects arguments from ScoreEntry and uses them to save data to file
     public void SaveData(string playerName, string homeroomName, int playerScore, string fileName)
     {
         List<ScoreboardEntry> tempDataList;
@@ -22,7 +22,7 @@ public class ScoreboardDataManager : MonoBehaviour
         file.Close();
     }
 
-
+    //Takes a list of objects and sort them in order by score, highest to lowest
     private List<ScoreboardEntry> SortData(List<ScoreboardEntry> dataList)
     {
         ScoreboardEntry temp;
@@ -42,6 +42,7 @@ public class ScoreboardDataManager : MonoBehaviour
         return dataList;
     }
 
+    //Load data from file based on argument file name
     public List<ScoreboardEntry> LoadData(string fileName)
     {
         List<ScoreboardEntry> tempDataList = new List<ScoreboardEntry>();
@@ -57,7 +58,7 @@ public class ScoreboardDataManager : MonoBehaviour
         return tempDataList;
     }
 
-
+    //Deletes file based on file name
     public void DeleteFile(string fileName)
     {
         string filePath = Application.persistentDataPath + fileName;
@@ -74,11 +75,13 @@ public class ScoreboardDataManager : MonoBehaviour
     }
 }
 
+//Object to define user scoring info
 [Serializable]
 public class ScoreboardEntry
 {
 
     public string name;
+    //Categorise by form room
     public string homeroom;
     public int score;
 
