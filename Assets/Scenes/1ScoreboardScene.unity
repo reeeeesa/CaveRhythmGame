@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 307.07, y: 29}
+  m_AnchoredPosition: {x: 307.07, y: 44.999996}
   m_SizeDelta: {x: 153.87, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8349982
@@ -505,6 +505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rankText: {fileID: 0}
   nameText: {fileID: 0}
+  homeroomText: {fileID: 0}
   scoreText: {fileID: 0}
   mainMenuButton: {fileID: 0}
   clearButton: {fileID: 0}
@@ -618,7 +619,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -309.33, y: 19}
+  m_AnchoredPosition: {x: -309.33, y: 35}
   m_SizeDelta: {x: 129.34, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &607147978
@@ -1129,7 +1130,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -152.35179, y: 19}
+  m_AnchoredPosition: {x: -146, y: 34.999996}
   m_SizeDelta: {x: 159.2964, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &923981610
@@ -1568,7 +1569,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 37.093025, y: 25.000002}
+  m_AnchoredPosition: {x: 37.093025, y: 40.999996}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1548241299
