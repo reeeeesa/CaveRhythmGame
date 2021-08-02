@@ -19,8 +19,8 @@ EditorBuildSettings:
     guid: d1c3109bdb54ad54c8a2b2838528e640
   - enabled: 1
     path: Assets/Scenes/Song1.unity
-    guid: 23c4a2c5470331d45a8cb760d49886ec
+    guid: 210cc128a37633846bcb42fb52410ecf
   - enabled: 1
     path: Assets/Scenes/Song2.unity
-    guid: c338ed45f8de3cb4284837650b17a239
+    guid: 3a800ef5fe961cd4980c5db172553e2d
   m_configObjects: {}

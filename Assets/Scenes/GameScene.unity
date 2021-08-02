@@ -2937,7 +2937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songBpm: 124
-  lastBeat: 67
+  lastBeat: 167
   songPositionInBeats: 0
   musicSource: {fileID: 0}
   beatOfThisNote: 0
