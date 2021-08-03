@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Purpose: Manage the spawning of beats to the information of the song provided within the scene
 public class SongManager : MonoBehaviour
 {
     //Song beats per minute
@@ -33,7 +34,8 @@ public class SongManager : MonoBehaviour
     //to be read by ObstacleMovement
     public float beatOfThisNote;
 
-    //amound to beats shown in advance
+    //amound of beats shown in advance
+    //Constant to keep the program more robust and flexible
     private const int BeatsShownInAdvance = 4;
 
     //keep all the position-in-beats of notes in the song

@@ -14,7 +14,7 @@ public class ScoreEntry : MonoBehaviour
     public Button submitButton;
     private GameObject invalidNameText, invalidHomeroomText;
 
-    //
+    //Declare other classes refferenced
     public Player player;
     private ScoreboardDataManager dataManager;
 
@@ -41,6 +41,7 @@ public class ScoreEntry : MonoBehaviour
 
     private void Update()
     {
+        //listen to see if the player presses enter
         if (Input.GetKey(KeyCode.Return))
         {
             Submit();
@@ -84,7 +85,7 @@ public class ScoreEntry : MonoBehaviour
         }
     }
 
-    //Checking for a valid name within a reasonable length (12 characters)
+    //Boundary check for a valid name within a reasonable length (12 characters)
     private bool CheckName()
     {
         bool isValid;

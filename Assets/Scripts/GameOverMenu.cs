@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+//Purpose: 
 public class GameOverMenu : MonoBehaviour
 {
     public Button restartButton;
@@ -23,6 +24,7 @@ public class GameOverMenu : MonoBehaviour
         mainMenuButton.onClick.AddListener(delegate { Debug.Log("Load main menu"); LoadMainMenu(); });
     }
 
+    //Reloads gamescene and resets timescale so bojects move and music plays
     private void RestartGame()
     {
         SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
@@ -30,6 +32,7 @@ public class GameOverMenu : MonoBehaviour
         AudioListener.pause = false;
     }
 
+    //Loads main menu
     private void LoadMainMenu()
     {
         SceneManager.LoadScene("0StartScene", LoadSceneMode.Single);

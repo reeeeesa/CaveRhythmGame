@@ -3,8 +3,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
-// Purpose: Collects data from the ScoreboardDatamanager and displays it through the UI system. Also takes user input and clears data in the ScoreboardDatamanager
 
+// Purpose: Collects data from the ScoreboardDatamanager and displays it through the UI system. Also takes user input and clears data in the ScoreboardDatamanager
 public class ScoreboardUI : MonoBehaviour
 {
     //Declare UI elements
