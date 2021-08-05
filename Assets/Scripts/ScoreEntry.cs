@@ -12,7 +12,7 @@ public class ScoreEntry : MonoBehaviour
     public TMP_Dropdown optionDropdown;
     public TMP_InputField nameInput, homeroomInput;
     public Button submitButton;
-    private GameObject noNameText, longNameText, noHomeroomText, longHomeroomText, invalidHomeroomText;
+    private GameObject noNameText, longNameText, noHomeroomText, longHomeroomText, invalidHomeroomText, bothHomeroomText;
 
     //Declare other classes refferenced
     public Player player;
@@ -34,6 +34,8 @@ public class ScoreEntry : MonoBehaviour
         longHomeroomText.SetActive(false);
         invalidHomeroomText = GameObject.Find("InvalidHomeroom");
         invalidHomeroomText.SetActive(false);
+        bothHomeroomText = GameObject.Find("InvalidBoundaryHomeroom");
+        bothHomeroomText.SetActive(false);
 
         Component[] inputTextComponents = GetComponentsInChildren<TMP_InputField>(); // Get the input text as a child
         nameInput = inputTextComponents[0].GetComponent<TMP_InputField>(); // Get the button text as a child\
@@ -60,6 +62,9 @@ public class ScoreEntry : MonoBehaviour
     //Get player infromation from the game (name, homeroom and score), check it is valid and send it to the ScoreboardDataManager
     void Submit()
     {
+        CheckName();
+        CheckHomeroom();
+
         //Check the player is within boundary of max 10 characters long
         if (CheckName() == true && CheckHomeroom() == true)
         {  
@@ -73,25 +78,6 @@ public class ScoreEntry : MonoBehaviour
 
                 
         }
-        //else if (CheckName() == false && CheckHomeroom() == true)
-        //{
-        //    invalidNameText.SetActive(true);
-        //    invalidHomeroomText.SetActive(false);
-        //    Debug.Log("invalid name");
-        //}
-        //else if (CheckName() == true && CheckHomeroom() == false)
-        //{
-        //    invalidHomeroomText.SetActive(true);
-        //    invalidNameText.SetActive(false);
-        //    Debug.Log("invalid homeroom");
-        //}
-        //else if (CheckName() == false && CheckHomeroom() == false)
-        //{
-        //    invalidNameText.SetActive(true);
-        //    Debug.Log("invalid name");
-        //    invalidHomeroomText.SetActive(true);
-        //    Debug.Log("invalid homeroom");
-        //}
     }
 
     //Boundary check for a valid name within a reasonable length (12 characters)
@@ -167,10 +153,14 @@ public class ScoreEntry : MonoBehaviour
             isLong = true;
             longHomeroomText.SetActive(false);
         }
-        else
+        else if (playerHomeroom.Length != 3 && playerHomeroom != "")
         {
             isLong = false;
             longHomeroomText.SetActive(true);
+        }
+        else
+        {
+            isLong = false;
         }
 
         //Check that the first letter of the homeroom code is one of the house letters (Invalid)
@@ -183,6 +173,13 @@ public class ScoreEntry : MonoBehaviour
         {
             isNameValid = false;
             invalidHomeroomText.SetActive(true);
+        }
+
+        if (isNameValid == false && isLong == false)
+        {
+            invalidHomeroomText.SetActive(false);
+            longHomeroomText.SetActive(false);
+            bothHomeroomText.SetActive(true);
         }
 
         //Check that homeroom input is not invalid and within boundaries
