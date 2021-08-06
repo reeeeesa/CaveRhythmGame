@@ -37,6 +37,7 @@ public class ScoreEntry : MonoBehaviour
         bothHomeroomText = GameObject.Find("InvalidBoundaryHomeroom");
         bothHomeroomText.SetActive(false);
 
+        //get the
         Component[] inputTextComponents = GetComponentsInChildren<TMP_InputField>(); // Get the input text as a child
         nameInput = inputTextComponents[0].GetComponent<TMP_InputField>(); // Get the button text as a child\
         homeroomInput = inputTextComponents[1].GetComponent<TMP_InputField>();
@@ -175,11 +176,16 @@ public class ScoreEntry : MonoBehaviour
             invalidHomeroomText.SetActive(true);
         }
 
+        //If multiple error messages are true show a message with both to stop overlap
         if (isNameValid == false && isLong == false)
         {
             invalidHomeroomText.SetActive(false);
             longHomeroomText.SetActive(false);
             bothHomeroomText.SetActive(true);
+        }
+        else
+        {
+            bothHomeroomText.SetActive(false);
         }
 
         //Check that homeroom input is not invalid and within boundaries
