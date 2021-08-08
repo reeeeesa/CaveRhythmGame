@@ -5,9 +5,10 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-//Purpose:  
+//Purpose:  Hide and display menus that appear during gameplay
 public class MenuManager : MonoBehaviour
 {
+    //Declare game objects
     public GameObject pauseMenu;
     public GameObject scoreEntryUI;
     public GameObject gameOverMenu;
@@ -33,24 +34,27 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    //Stop time and display the pause menu
     public void DisplayPauseMenu()
     {
         pauseMenu.SetActive(true);
-        Time.timeScale = 0; // Stop time while pause menu is active
+        Time.timeScale = 0;
         AudioListener.pause = true;
     }
 
+    //Stop time and display the score entry UI
     public void DisplayScoreEntryUI()
     {
         scoreEntryUI.SetActive(true);
-        Time.timeScale = 0; // Stop time while pause menu is active
+        Time.timeScale = 0;
         AudioListener.pause = true;
     }
 
+    //Stop time and display the game over menu
     public void DisplayGameOverMenu()
     {
         gameOverMenu.SetActive(true);
-        Time.timeScale = 0; // Stop time while pause menu is active
+        Time.timeScale = 0;
         AudioListener.pause = true;
     }
 }

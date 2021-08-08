@@ -23,7 +23,7 @@ public class ScoreEntry : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Declare error message game objects and hide them
+        //Find error message game objects and hide them
         noNameText = GameObject.Find("NoName");
         noNameText.SetActive(false);
         longNameText = GameObject.Find("NameTooLong");
@@ -37,14 +37,16 @@ public class ScoreEntry : MonoBehaviour
         bothHomeroomText = GameObject.Find("InvalidBoundaryHomeroom");
         bothHomeroomText.SetActive(false);
 
-        //get the
-        Component[] inputTextComponents = GetComponentsInChildren<TMP_InputField>(); // Get the input text as a child
-        nameInput = inputTextComponents[0].GetComponent<TMP_InputField>(); // Get the button text as a child\
+        //get the input tect components and assign them to thei variables
+        Component[] inputTextComponents = GetComponentsInChildren<TMP_InputField>();
+        nameInput = inputTextComponents[0].GetComponent<TMP_InputField>();
         homeroomInput = inputTextComponents[1].GetComponent<TMP_InputField>();
 
+        //find the submit button
         Component[] buttonComponents = GetComponentsInChildren<Button>(); ;
-        submitButton = buttonComponents[0].GetComponent<Button>(); // store all the buttons in an array
+        submitButton = buttonComponents[0].GetComponent<Button>();
 
+        //listen for a click on the button and run Submit if it is clicked
         submitButton.onClick.AddListener(delegate { Submit(); });
 
         dataManager = FindObjectOfType<ScoreboardDataManager>();
@@ -61,7 +63,7 @@ public class ScoreEntry : MonoBehaviour
     }
 
     //Get player infromation from the game (name, homeroom and score), check it is valid and send it to the ScoreboardDataManager
-    void Submit()
+    private void Submit()
     {
         CheckName();
         CheckHomeroom();

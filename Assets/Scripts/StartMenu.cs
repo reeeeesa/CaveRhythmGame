@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 
 
-
+//Purpose: 
 public class StartMenu : MonoBehaviour
 {
     public Button startButton, quitButton, scoreboardButton;

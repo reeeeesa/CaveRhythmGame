@@ -80,6 +80,7 @@ public class SongManager : MonoBehaviour
         songNumber = lsMenu.songPosition;
     }
 
+
     private void UTWUpdate()
     {
         if (nextIndex < notesUTW.Length && notesUTW[nextIndex] < songPositionInBeats + 4)

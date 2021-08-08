@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-//Purpose:  
+//Purpose:  Load scenes appropriate to buttons pressed
 public class PauseMenu : MonoBehaviour
 {
     public Button resumeButton;
@@ -27,13 +27,15 @@ public class PauseMenu : MonoBehaviour
         mainMenuButton.onClick.AddListener(delegate { Debug.Log("MainMenu"); LoadMainMenu(); });
     }
 
+    //Start time and hide pause menu
     private void ResumeGame()
     {
-        Time.timeScale = 1f; // Start time when pause menu active is false
+        Time.timeScale = 1f;
         AudioListener.pause = false;
         gameObject.SetActive(false);
     }
 
+    //Start time and reload scene
     private void RestartGame()
     {
         Time.timeScale = 1f;
@@ -41,6 +43,7 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
     }
 
+    //Start time and load StartScene
     private void LoadMainMenu()
     {
         Time.timeScale = 1f;
