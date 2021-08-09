@@ -80,10 +80,11 @@ public class SongManager : MonoBehaviour
         songNumber = lsMenu.songPosition;
     }
 
-
+    //Spawn obstacles using the Under The Weather beat list
     private void UTWUpdate()
     {
-        if (nextIndex < notesUTW.Length && notesUTW[nextIndex] < songPositionInBeats + 4)
+        //If list of beats still has beats and there is a beat coming within BeatsShownInAdvance, spawn an obstacle
+        if (nextIndex < notesUTW.Length && notesUTW[nextIndex] < songPositionInBeats + BeatsShownInAdvance)
         {
 
             //initialize the fields of the music note
@@ -96,8 +97,10 @@ public class SongManager : MonoBehaviour
         beatOfThisNote = notesUTW[nextIndex];
     }
 
+    //Spawn obstacles using the Honey beat list
     private void HoneyUpdate()
     {
+        //If list of beats still has beats and there is a beat coming within BeatsShownInAdvance, spawn an obstacle
         if (nextIndex < notesHoney.Length && notesHoney[nextIndex] < songPositionInBeats + BeatsShownInAdvance)
         {
 
@@ -120,6 +123,7 @@ public class SongManager : MonoBehaviour
         //determine how many beats since the song started
         songPositionInBeats = songPosition / secPerBeat;
 
+        //Determine which song was selected and run respective update function
         if (songNumber == 0)
         {
             UTWUpdate();
@@ -129,6 +133,7 @@ public class SongManager : MonoBehaviour
             HoneyUpdate();
         }
 
+        //Display score entry UI when song reaches the last beat
         if (songPositionInBeats >= lastBeat)
         {
             menuManager.DisplayScoreEntryUI();
