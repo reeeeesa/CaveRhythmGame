@@ -3,20 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
+//Purpose: Move the tunnels towards the player
 public class TunnelMovement : MonoBehaviour
 {
-    [SerializeField] private float speed;
-
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        speed = 10;
-    }
-
-
+    //Speed is constant to make code more flexible
+    private const float speed = 10;
 
     // Update is called once per frame
     void Update()
@@ -25,17 +16,15 @@ public class TunnelMovement : MonoBehaviour
     }
 
 
-
+    //Moves the tunnel and destroys is after it leaves vision
     private void Movement()
     {
         transform.position = transform.position + new Vector3(0, 0, -1 * speed * Time.deltaTime);
 
 
-
         if (transform.position.z < -30f)
         {
             Destroy(this.gameObject);
-            //Debug.Log("Tunnel Destroyed");
         }
     }
 }

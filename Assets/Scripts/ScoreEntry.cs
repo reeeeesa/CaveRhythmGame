@@ -55,7 +55,7 @@ public class ScoreEntry : MonoBehaviour
 
     private void Update()
     {
-        //listen to see if the player presses enter
+        //Run submit if player presses enter
         if (Input.GetKey(KeyCode.Return))
         {
             Submit();
